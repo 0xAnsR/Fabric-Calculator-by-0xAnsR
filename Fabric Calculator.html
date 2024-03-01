@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+   
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+  
+
+  <title>ACH</title>
+
+    <link rel="canonical" href="https://codepen.io/FlorinCornea/pen/YzGeprR">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  
+  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  
+<style>
+aside {
+  color: #gray;
+  width: 300px;
+  padding-left: 20px;
+  height: 100vh;
+  background-image: linear-gradient(30deg , #0b39f4, #acfd44);
+  border-top-right-radius: 80px;
+}
+
+aside a {
+  font-size: 23px;
+  color: #fff;
+  display: block;
+  padding: 12px;
+  padding-left: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+aside a:hover {
+  color: #3f5efb;
+  background: #fff;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+aside a i {
+  margin-right: 5px;
+}
+
+aside a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+
+aside a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside p {
+  margin: 0;
+  padding: 40px 0;
+}
+
+body {
+  font-family: 'Roboto';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.social {
+  height: 0;  
+}
+
+.social i:before {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
+#cal{
+border:4px dotted red;
+width:800px;
+height:650px;
+margin-left:400PX;
+margin-top:-680PX;
+
+}
+
+/* submit button */
+
+
+.button, .tick {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;}
+.button {
+  width: 300px;
+  height: 80px;
+  background: dodgerblue;
+  border-radius: 6px;
+  transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+}
+
+.button svg {
+  transform: rotate(-0deg);/*180&*/
+  transition: all .5s;
+}
+
+.button__circle {
+  width: 300px;
+  height: 80px;
+  background: mediumseagreen;
+  border-radius: 0%;
+  transform: rotate(-0deg);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.tick {
+  color: white;
+  font-size: 2em;
+  transition: all .9s;
+}
+
+#clothLength,label{
+
+height:50PX;
+width:400PX;
+font-size:2.5EM;
+}
+
+#result, #result2 {
+
+font-style:bold;
+font-size:3em;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">  <form id="clothCalculatorForm">
+  <aside>
+  <p> Fabric Cal </p>
+  <a href="javascript:void(0)">
+    <i class="fa fa-user-o" aria-hidden="true"></i>
+   Gents
+  </a>
+   <input type="radio" name="clothType" value="wanhWear" checked> Wash N Wear (4-5/suit)
+   <hr>
+    <input type="radio" name="clothType" value="cottonKhadder"> Cotton & Khadder (4.5/suit)
+	<hr>
+    <input type="radio" name="clothType" value="lathaBoski"> Latha and Boski (7 /suit)
+	<hr>
+
+  <a href="javascript:void(0)">
+    <i class="fa fa-laptop" aria-hidden="true"></i>
+    Seasonal
+  </a>
+   <input type="radio" name="clothType" value="lawnsuit" checked> Lawn (7.5-8 M/suit)
+   <hr>
+    <input type="radio" name="clothType" value="linensuit"> Linen (8 M/suit)
+	<hr>
+    <input type="radio" name="clothType" value="trouser"> Trouser (2.5 M/Pc)
+	<hr>
+  <a href="javascript:void(0)">
+    <i class="fa fa-clone" aria-hidden="true"></i>
+   Silky
+  </a>
+   <input type="radio" name="clothType" value="Kattan" checked> Kattan (1.75 G/Pc)
+   <hr>
+    <input type="radio" name="clothType" value="Masurishamez"> Masuri& shamez(2.5 G/Pc)
+	<hr>
+    
+  <a href="javascript:void(0)">
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    Bedding
+  </a>
+   <input type="radio" name="clothType" value="Gadda" checked> Gadda (4 m/Pc)
+   <hr>
+    <input type="radio" name="clothType" value="Razi"> Razi(5 m/Pc)
+	<hr>
+    <input type="radio" name="clothType" value="Khais"> Khais (6& 3.5 /Pc)
+	<hr>
+  <form/>
+</aside>
+
+
+<div class="calculator" id="cal">
+<label for="hello">Cloth Length (M):</label><hr>
+<input type="number" id="clothLength" name="clothLength" required="" placeholder="Meters&Gaz">
+
+<div id="result">Suits: Na </div><hr>
+<div id="result2" >  Remaining: NaN Meters</div>
+
+  <div class="button" type="button" onclick="calculateSuits()">
+	<div class="container">
+		<div class="tick">
+		</div>
+	</div>
+<!-- button type="button" onclick="calculateSuits()">Calculate</button -->
+
+-->
+
+
+  
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+      var expression = document.getElementById('display').value;
+      var result = eval(expression);
+      document.getElementById('display').value = result;
+    }
+  </script>
+  <div id="result"><div>
+
+  <script>
+    function calculateSuits() {
+      const clothLength = parseFloat(document.getElementById('clothLength').value);
+      const clothType = document.querySelector('input[name="clothType"]:checked').value;
+
+      let suits = 0;
+      let remainingMeters = 0;
+
+      switch (clothType) {
+        case 'wanhWear':
+          suits = Math.floor(clothLength / 4);
+          remainingMeters = clothLength % 4;
+          break;
+        case 'cottonKhadder':
+          suits = Math.floor(clothLength / 4.5);
+          remainingMeters = clothLength % 4.5;
+          break;
+        case 'lathaBoski':
+          suits = Math.floor(clothLength / 7);
+          remainingMeters = clothLength % 7;
+          break;
+		  case 'lawnsuit':
+          suits = Math.floor(clothLength / 7.5);
+          remainingMeters = clothLength % 7.5;
+          break;
+		    case 'linensuit':
+          suits = Math.floor(clothLength / 8);
+          remainingMeters = clothLength % 8;
+          break;
+		     case 'trouser':
+          suits = Math.floor(clothLength / 2.5);
+          remainingMeters = clothLength % 2.5;
+          break;
+		   case 'trouser':
+          suits = Math.floor(clothLength / 2.5);
+          remainingMeters = clothLength % 2.5;
+          break;
+		   case 'Kattan':
+          suits = Math.floor(clothLength / 1.75);
+          remainingMeters = clothLength % 1.75;
+          break;
+		  case 'Masurishamez':
+          suits = Math.floor(clothLength / 2.5);
+          remainingMeters = clothLength % 2.5;
+          break;
+		   case 'Gadda':
+          suits = Math.floor(clothLength / 4);
+          remainingMeters = clothLength % 4;
+          break;
+		  case 'Razi':
+          suits = Math.floor(clothLength / 5);
+          remainingMeters = clothLength % 5;
+          break;
+		  case '':
+          suits = Math.floor(clothLength / 3.5);
+          remainingMeters = clothLength % 3.5;
+          break;
+      }
+
+      document.getElementById('result').innerText = `Suits: ${suits} `;
+	  document.getElementById('result2').innerText = `Remaining Meters: ${remainingMeters.toFixed(2)} meters`;
+    }
+	
+	
+	
+	
+	
+	//button 
+	
+	
+	let button = document.querySelector('.button');
+let buttonText = document.querySelector('.tick');
+
+const tickMark = "<svg width=\"58\" height=\"45\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#fff\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
+
+buttonText.innerHTML = "Calculate";
+
+button.addEventListener('click', function () {
+
+  if (buttonText.innerHTML !== "Calculate") {
+    buttonText.innerHTML = "Calculate";
+  } else if (buttonText.innerHTML === "Calculate") {
+    buttonText.innerHTML = tickMark;
+  }
+  this.classList.toggle('button__circle');
+});
+  </script>
+  
+  
+  
+</body>
+
+</html>
+
